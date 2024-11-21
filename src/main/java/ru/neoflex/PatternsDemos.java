@@ -1,5 +1,6 @@
 package ru.neoflex;
 
+import ru.neoflex.Adapter.AdapterDemo;
 import ru.neoflex.Factory.FactoryDemo;
 import ru.neoflex.Singleton.SingletonDemo;
 
@@ -11,6 +12,7 @@ public class PatternsDemos {
         System.out.println("Print 0 to exit.");
         System.out.println("Print 1 to see Singleton demonstration.");
         System.out.println("Print 2 to see Factory demonstration.");
+        System.out.println("Print 3 to see Adapter demonstration");
         System.out.print("Enter your choice: ");
 
         try (Scanner scanner = new Scanner(System.in)) {
@@ -22,7 +24,7 @@ public class PatternsDemos {
             Demo demo = chooseDemo(choice);
             demo.startDemo();
         } catch (InputMismatchException | IllegalArgumentException e) {
-            System.out.println("You have to input a number between 0 and 2.");
+            System.out.println("You have to input a number between 0 and 3.");
         }
 
 
@@ -33,7 +35,8 @@ public class PatternsDemos {
         return switch (number) {
             case 1 -> new SingletonDemo();
             case 2 -> new FactoryDemo();
-            default -> throw new IllegalArgumentException("Number must be from 1 to 4.");
+            case 3 -> new AdapterDemo();
+            default -> throw new IllegalArgumentException("Number must be from 1 to 3.");
         };
     }
 }
